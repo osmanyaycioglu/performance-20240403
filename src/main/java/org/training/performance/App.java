@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
+        long counter = 0;
         while(true) {
             App appLoc  =new App();
             Customer customerLoc = new Customer();
@@ -20,9 +21,14 @@ public class App
             appLoc.method();
             customerLoc2 = null;
             customerLoc = null;
-            try {
-                Thread.sleep(1);
-            } catch (Exception exp) {
+            counter++;
+
+            if (counter % 100_000 == 0){
+                try {
+                    Thread.sleep(1);
+                } catch (Exception exp) {
+                }
+
             }
         }
     }
