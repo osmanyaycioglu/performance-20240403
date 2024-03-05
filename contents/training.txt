@@ -1,0 +1,21 @@
+
+-XX:+PrintHeapAtGC can now be expressed as -Xlog:gc+heap=debug option
+-XX:+PrintParallelOldGCPhasesTimes can be expressed as -Xlog:gc+phases*=trace
+-XX:+PrintGCApplicationConcurrentTime and -XX:+PrintGCApplicationStoppedTime can now be expressed as -Xlog:safepoint
+-XX:+G1PrintHeapRegions can be expressed as -Xlog:gc+region*=trace
+-XX:+SummarizeConcMark can be expressed as -Xlog:gc+marking*=trace
+-XX:+SummarizeRSetStats can be expressed as -Xlog:gc+remset*=trace
+-XX:+PrintJNIGCStalls can be expressed as -Xlog:gc+jni*=debug
+-XX:+PrintTaskqueue can be expressed as -Xlog:gc+task+stats*=trace
+-XX:+TraceDynamicGCThreads can be expressed as -Xlog:gc+task*=trace
+-XX:+PrintAdaptiveSizePolicy can be expressed as -Xlog:gc+ergo*=trace
+-XX:+PrintTenuringDistribution can be expressed as -Xlog:gc+age*=trace
+
+
+-XX:+PrintHeapAtGC -XX:+PrintParallelOldGCPhasesTimes
+
+java 11+
+-Xlog:gc*=info,heap*=debug,safepoint=info:file=gc.log:time,uptime:filecount=5,filesize=100m
+
+java 1.8
+-Xloggc:gc-%t.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCCause -XX:+PrintTenuringDistribution -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=5M
