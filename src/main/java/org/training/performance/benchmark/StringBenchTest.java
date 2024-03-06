@@ -1,5 +1,6 @@
 package org.training.performance.benchmark;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class StringBenchTest {
@@ -16,11 +17,11 @@ public class StringBenchTest {
         for (int i = 0; i < 100 ; i++) {
             start += " " +i;
         }
-        if (logger.isDebugEnabled()) {
-            logger.debug(data + " " + a + " deneme");
+        if (logger.isLoggable(Level.FINE)) {
+            logger.fine(data + " " + a + " deneme");
         }
 
-        logger.debug("{} {} deneme", data, a );
+        // logger.fine("{} {} deneme", data, a );
 
         StringBuilder builderLoc = new StringBuilder();
         builderLoc.append("str");
