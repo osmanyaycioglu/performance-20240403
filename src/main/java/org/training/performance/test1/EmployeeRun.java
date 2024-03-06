@@ -59,10 +59,10 @@ public class EmployeeRun {
     public void secondMethod(){
         String stringLoc = UUID.randomUUID()
                                .toString();
-        try {
-            Thread.sleep(10);
-        } catch (Exception exp) {
-        }
+//        try {
+//            Thread.sleep(10);
+//        } catch (Exception exp) {
+//        }
         thirdMethod();
 
     }
@@ -74,7 +74,7 @@ public class EmployeeRun {
         forthMethod();
     }
     public void forthMethod(){
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
             String stringLoc = UUID.randomUUID()
                                    .toString();
         }
